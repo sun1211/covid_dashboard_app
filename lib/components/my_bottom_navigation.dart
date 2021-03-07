@@ -1,5 +1,6 @@
 import 'package:covid_dashboard_app/constants.dart';
 import 'package:covid_dashboard_app/models/menu_state.dart';
+import 'package:covid_dashboard_app/screen/chart/chart_screen.dart';
 import 'package:covid_dashboard_app/screen/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -25,10 +26,6 @@ class MyBottomNavigation extends StatelessWidget {
             color: Color(0xFFDADADA).withOpacity(0.15),
           ),
         ],
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(40),
-          topRight: Radius.circular(40),
-        ),
       ),
       child: SafeArea(
           top: false,
@@ -38,10 +35,9 @@ class MyBottomNavigation extends StatelessWidget {
               IconButton(
                 icon: SvgPicture.asset(
                   "assets/icons/home.svg",
-                  // color: MenuState.home == selectedMenu
-                  //     ? kPrimaryColor
-                  //     : kInActiveIconColor,
-                  color: kPrimaryColor,
+                  color: MenuState.home == selectedMenu
+                      ? kPrimaryColor
+                      : kInActiveIconColor,
                 ),
                 onPressed: () => Navigator.push(
                   context,
@@ -57,12 +53,12 @@ class MyBottomNavigation extends StatelessWidget {
                       ? kPrimaryColor
                       : kInActiveIconColor,
                 ),
-                // onPressed: () => Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => HomeScreen(),
-                //   ),
-                // ),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChartScreen(),
+                  ),
+                ),
               ),
               IconButton(
                 icon: SvgPicture.asset(
@@ -71,12 +67,7 @@ class MyBottomNavigation extends StatelessWidget {
                       ? kPrimaryColor
                       : kInActiveIconColor,
                 ),
-                // onPressed: () => Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => HomeScreen(),
-                //   ),
-                // ),
+                onPressed: () {},
               ),
               IconButton(
                 icon: SvgPicture.asset(
@@ -85,12 +76,7 @@ class MyBottomNavigation extends StatelessWidget {
                       ? kPrimaryColor
                       : kInActiveIconColor,
                 ),
-                // onPressed: () => Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => HomeScreen(),
-                //   ),
-                // ),
+                onPressed: () {},
               ),
             ],
           )),
